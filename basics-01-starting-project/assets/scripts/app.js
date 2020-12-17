@@ -27,40 +27,48 @@ function writeToLog(
   console.log(logEntries);
 }
 
+function calculateResult(calculationType){
+  const enteredNum = getUserInput();
+  const initial = currentResult;
+  if(calculationType === 'add'){
+    currentResult += enteredNum;
+    createAndWriteOutput("+", initial, enteredNum);
+    writeToLog('ADD', initial, enteredNum, currentResult);
+  }
+  if(calculationType === 'subtract'){
+    currentResult -= enteredNum;
+    createAndWriteOutput("-", initial, enteredNum);
+    writeToLog('SUBTRACT', initial, enteredNum, currentResult);
+  }
+  if(calculationType === 'multiply'){
+    currentResult =  currentResult * enteredNum;
+    createAndWriteOutput("*", initial, enteredNum);
+    writeToLog('MULTIPLY', initial, enteredNum, currentResult);
+  }
+  if(calculationType === 'divide'){
+    currentResult = currentResult / enteredNum;
+    createAndWriteOutput("/", initial, enteredNum);
+    writeToLog('DIVIDE', initial, enteredNum, currentResult);
+  }
+}
 
 /*
  * Four functions for each button!
  */
 function add() {
-  const enteredNum = getUserInput();
-  const initial = currentResult;
-  currentResult = currentResult + enteredNum;
-  createAndWriteOutput("+", initial, enteredNum);
-  writeToLog('ADD', initial, enteredNum, currentResult);
+  calculateResult('add');
 }
 
 function subtract() {
-  const enteredNum = getUserInput();
-  const initial = currentResult;
-  currentResult = currentResult - enteredNum;
-  createAndWriteOutput("-", initial, enteredNum);
-  writeToLog('SUBTRACT', initial, enteredNum, currentResult);
+  calculateResult('subtract');
 }
 
 function multiply() {
-  const enteredNum = getUserInput();
-  const initial = currentResult;
-  currentResult = currentResult * enteredNum;
-  createAndWriteOutput("*", initial, enteredNum);
-  writeToLog('MULTIPLY', initial, enteredNum, currentResult);
+  calculateResult('multiply');
 }
 
 function divide() {
-  const enteredNum = getUserInput();
-  const initial = currentResult;
-  currentResult = currentResult / enteredNum;
-  createAndWriteOutput("/", initial, enteredNum);
-  writeToLog('DIVIDE', initial, enteredNum, currentResult);
+  calculateResult('divide');
 }
 
 //event listeners!
