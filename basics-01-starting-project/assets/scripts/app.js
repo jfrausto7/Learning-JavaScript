@@ -29,6 +29,16 @@ function writeToLog(
 
 function calculateResult(calculationType){
   const enteredNum = getUserInput();
+  if(
+    calculationType !== 'ADD' &&
+    calculationType !== 'SUBTRACT' &&
+    calculationType !== 'MULTIPLY' &&
+    calculationType !== 'DIVIDE' ||
+    !enteredNum
+  ){
+    return;
+  }
+
   const initial = currentResult;
   if(calculationType === 'add'){
     currentResult += enteredNum;
