@@ -177,7 +177,7 @@ function printLogHandler() {
   //   console.log('-------');
   // }
 
-  let i - 0;
+  let i = 0;
   for(const logEntry of battleLog){
     console.log(logEntry);
     console.log(i);
