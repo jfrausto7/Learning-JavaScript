@@ -13,28 +13,27 @@ const LOG_EVENT_GAME_OVER = "GAME_OVER";
 
 let battleLog = [];
 
-function getMaxLifeValues(){
-  const enteredValue = prompt('Maximum life for you and the monster.', '100');
+function getMaxLifeValues() {
+  const enteredValue = prompt("Maximum life for you and the monster.", "100");
 
   const parsedValue = parseInt(enteredValue);
 
   if (isNaN(parsedValue) || parsedValue <= 0) {
-    throw {message: 'Invalid user input, not a number!'};
+    throw { message: "Invalid user input, not a number!" };
   }
   return parsedValue;
 }
 
 let chosenMaxLife;
 
-try{
+try {
   chosenMaxLife = getMaxLifeValues();
-}catch(error){
+} catch (error) {
   console.log(error);
   chosenMaxLife = 100;
-}finally{
+} finally {
   //will execute no matter if there's an error or not
 }
-
 
 let currentMonsterHealth = chosenMaxLife;
 let currentPlayerHealth = chosenMaxLife;
@@ -195,13 +194,23 @@ function printLogHandler() {
 
   let i = 0;
   //can use labels for loop control (breaking out of specific loops)
-  printLoop: for(const logEntry of battleLog){
+  printLoop: for (const logEntry of battleLog) {
     console.log("Log Entry", logEntry);
     console.log(i);
     i++;
   }
 
   console.log(battleLog);
+}
+
+//a function to test javascripts strict mode
+function strictModeTest() {
+  //enable with the following string
+  "use strict";
+
+  //will limit you for safety
+  //throws certain errors, disables a few things.
+
 }
 
 //event handlers
