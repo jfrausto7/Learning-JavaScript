@@ -53,4 +53,9 @@ list.add(8);
 console.log(list);
 
 
+let a = [1, 2, 3];
+a[100] = 6;
+console.log(a, a.length);
+
+
 
